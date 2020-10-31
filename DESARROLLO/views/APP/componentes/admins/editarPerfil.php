@@ -92,7 +92,7 @@ $localidads = parent::consultarLocalidad();
 		</div>
 		<div class="form-group">
 			<label for="">Clave:</label>
-			<input type="text" class="form-control" name="celular" id="" aria-describedby=""value="<?php echo $contratista->contraseña;?>">
+			<input type="text" class="form-control" name="contraseña" id="" aria-describedby=""value="<?php echo $contratista->contraseña;?>">
 		</div>
 
 		<div class="form-group">

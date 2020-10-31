@@ -81,7 +81,7 @@ class AdminsController extends Administrador{
         $Direccion=$_POST['direccion'];
         $Localidad=$_POST['fk_localidad'];
         $Email=$_POST['email'];
-        $Clave=$_POST['clave'];
+        $Clave=$_POST['contraseña'];
         $Celular=$_POST['celular'];
         $Telefono=$_POST['telefono'];
         $Eps=$_POST['fk_eps'];
