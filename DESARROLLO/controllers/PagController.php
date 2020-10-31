@@ -17,9 +17,7 @@ class PagController extends paginas{
     public function contacto(){
         require_once('views/APP/componentes/paginas/contacto.php');
     }
-    public function editarPerfil(){
-        require_once('views/APP/componentes/admins/editarPerfil.php');
-    }
+
 
 
 

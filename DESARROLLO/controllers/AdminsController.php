@@ -28,9 +28,9 @@ class AdminsController extends Administrador{
     public function registrar_usuario(){
         
 
-        $Nombres = ($_POST['nombres']);
-        $Apellidos = ($_POST['apellidos']);
-        $Clave = ($_POST['contraseña']);
+        $Nombres = ($_POST['updateNombres']);
+        $Apellidos = ($_POST['updateApellidos']);
+        $Clave = ($_POST['updateContraseña']);
         $Tipo_documento = ($_POST['fk_tipo_documento']);
         $Numero_documento = ($_POST['numero_documento']);
         $Genero = ($_POST['fk_genero']);
@@ -61,16 +61,33 @@ class AdminsController extends Administrador{
         require_once('views/APP/componentes/admins/consultarUsuarios.php');
 
     }
+    public function VerUser(){
 
-    public function update(){
-        $Usuario= ($_POST['usuario']);
-        $Email= ($_POST['email']);
-        $Clave= ($_POST['clave']);
-        parent::updateUsuario($id,$Usuario,$Email,$Clave);
-        header('location:?c=Admins&m=consultarUser');
+        require_once('views/APP/componentes/admins/VisualizarUsario.php');
 
     }
 
+    public function editarPerfil(){
+
+        require_once('views/APP/componentes/admins/editarPerfil.php');
+    }
+
+
+    public function updateUsser(){
+        $updateid=$_POST['updateid'];
+        $Nombres=$_POST['nombres'];
+        $Apellidos=$_POST['apellidos'];
+        $Edad=$_POST['edad'];
+        $Direccion=$_POST['direccion'];
+        $Localidad=$_POST['fk_localidad'];
+        $Email=$_POST['email'];
+        $Clave=$_POST['clave'];
+        $Celular=$_POST['celular'];
+        $Telefono=$_POST['telefono'];
+        $Eps=$_POST['fk_eps'];
+        parent::updateUsuario($updateid,$Nombres,$Apellidos,$Edad,$Direccion,$Localidad,$Email,$Clave,$Celular,$Telefono,$Eps);
+        header('location:?c=Admins&m=consultarUser');
+    }
     
 
 

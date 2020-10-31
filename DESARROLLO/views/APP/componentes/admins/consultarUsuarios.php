@@ -38,8 +38,9 @@
 		<thead>
 			<tr>
 				<th scope="col">ID</th>
-				<th scope="col">Username</th>
-				<th scope="col">Email</th>
+				<th scope="col">Nombres</th>
+				<th scope="col">Apellidos</th>
+				<th scope="col"> documento</th>
 	<!--<th scope="col">Password</th>
 	<th scope="col">cargo</th>-->
 	<th scope="col" class="text-center">Acciones</th>
@@ -49,14 +50,14 @@
 
 	<tbody>
 		<tr>
-			<td><?php echo $r->id_usuarios?></td>
-			<td><?php echo $r->usuario?></td>
-			<td><?php echo $r->email?></td>
-<!--<td><?php echo $r->clave?></td>
-	<td><?php echo $r->fk_cargo_contratista?></td>-->
-	<td><a href="?" class="btn btn-dark btn-sm"><i class="fas fa-eye"></i></a>
-		<a href="?c=pag&m=editarPerfil" class="btn btn-primary btn-sm"><i class="fas fa-user-edit"></i></a>
-		<a href="?c=Admins&m=eliminar&id= <?php echo $r->id_usuarios?>" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
+			<td><?php echo $r->id_contratista?></td>
+			<td><?php echo $r->nombres?></td>
+			<td><?php echo $r->apellidos?></td>
+			<td><?php echo $r->numero_documento?></td>
+
+	<td><a href="?c=Admins&m=VerUser&id=" class="btn btn-dark btn-sm"><i class="fas fa-eye"></i></a>
+		<a href="?c=admins&m=editarPerfil&id=<?php echo $r->id_contratista;?> " class="btn btn-primary btn-sm"><i class="fas fa-user-edit"></i></a>
+		<a href="?c=Admins&m=eliminar&id= <?php echo $r->id_contratista?>" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
 
 	</td>
 

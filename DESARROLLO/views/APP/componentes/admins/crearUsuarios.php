@@ -48,17 +48,22 @@
 			<input type="text" class="form-control" name="apellidos" id="" aria-describedby="">
 		</div>
 
+
 		<label for=""> Tipo documento:</label>
 		<select name="fk_tipo_documento"  class="form-control col- ">
-			<?php
-			
-			while($datos = mysqli_fetch_array($stm))    
-				?>
-			<option value="1"><?php echo $datos ['fk_tipo_documento'] ?></option>
-			<?php
-			
-			?>
+		<?php 
+
+	$documentos = parent::consultarDocumento();
+
+		foreach ($documentos as $documento){
+	
+?>
+
+			<option value="<?php echo $documento->id_tipo_documento; ?>">
+			<?php echo $documento->tipo_documento;?></option>
+			<?php } ?>
 		</select>
+		
 
 
 		<div class="form-group">
@@ -68,10 +73,32 @@
 
 		<label for=""> Genero:</label>
 		<select name="fk_genero" id="fk_genero" class="form-control ">
+		<?php 
+
+$generos = parent::consultarGenero();
+
+	foreach ($generos as $genero){
+
+?>
+
+		<option value="<?php echo $genero->id_genero; ?>">
+		<?php echo $genero->genero;?></option>
+		<?php } ?>
 		</select>
 
 		<label for=""> Cargo</label>
 		<select name="fk_cargo" id="fk_cargo" class="form-control ">
+		<?php 
+
+$cargos = parent::consultarCargo();
+
+	foreach ($cargos as $cargo){
+
+?>
+
+		<option value="<?php echo $cargo->id_cargo_contratista; ?>">
+		<?php echo $cargo->cargo;?></option>
+		<?php } ?>
 		</select>
 
 		<div class="form-group">
@@ -86,6 +113,17 @@
 
 		<label for=""> Localidad</label>
 		<select name="fk_localidad" id="fk_localidad" class="form-control ">
+		<?php 
+
+$localidads = parent::consultarLocalidad();
+
+	foreach ($localidads as $localidad){
+
+?>
+
+		<option value="<?php echo $localidad->id_localidad; ?>">
+		<?php echo $localidad->localidad;?></option>
+		<?php } ?>
 		</select>
 
 		<div class="form-group">
@@ -105,10 +143,32 @@
 
 		<label for=""> Eps:</label>
 		<select name="fk_eps" id="fk_eps" class="form-control ">
+		<?php 
+
+$epss = parent::consultarEps();
+
+	foreach ($epss as $eps){
+
+?>
+
+		<option value="<?php echo $eps->id_eps; ?>">
+		<?php echo $eps->nombre_eps;?></option>
+		<?php } ?>
 		</select>
 
 		<label for=""> Sede</label>
 		<select name="fk_sede_contratista" id="fk_sede_contratista" class="form-control ">
+		<?php 
+
+$sedes = parent::consultarSede();
+
+	foreach ($sedes as $sede){
+
+?>
+
+		<option value="<?php echo $sede->id_sede; ?>">
+		<?php echo $sede->direccion;?></option>
+		<?php } ?>
 		</select>
 
 		<div class="form-group form-check">
