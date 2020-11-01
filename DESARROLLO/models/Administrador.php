@@ -18,15 +18,7 @@ class Administrador extends DB{
 
    
 
- public function consultarIDX($id = ''){
-     try{       
-        $stm = parent::conectar()->prepare("SELECT id_contratista, nombres, apellidos, numero_documento, edad, edad, direccion, email, celular, telefono FROM contratista INNER JOIN tipo_documento ON fk_tipo_documento = tipo_documento.id_tipo_documento INNER JOIN generos ON fk_genero = generos.id_genero INNER JOIN cargo_contratista ON fk_cargo = cargo_contratista.id_cargo_contratista INNER JOIN localidad ON  fk_localidad = localidad.id_localidad INNER JOIN eps ON fk_eps = eps.id_eps INNER JOIN sedes ON fk_sede_contratista = sedes.id_sede AND id_contratista = $id");
-         $stm -> execute();
-         return $stm->fetch(PDO::FETCH_OBJ);
-     }catch(Exception $e){
-         die($e->getMessage());
-     }
- }
+ 
 
  public function consultarDocumento(){
      try{

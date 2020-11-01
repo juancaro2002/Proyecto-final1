@@ -63,7 +63,14 @@
 
 	<tbody>
 		<tr>
-		<?php foreach(parent::all() as $r){?>
+		<?php  $id = $_REQUEST['id'];
+            $r=parent::all($id);{?>
+
+<input type="hidden" value="<?php echo $id ?>" name="updateid"  class="form-control" readonly>
+
+		<?php foreach($r as $r){
+		 if($id == $r->id_contratista){ 
+			 ?>
 		
 			<td><?php echo $r->id_contratista;?></td>
 			<td><?php echo $r->nombres;?></td>
@@ -81,8 +88,10 @@
             <td><?php echo $r->fk_eps;?></td>
             
 
-<?php  } ?>
+
 	</td>
+
+	
 
 
 </tr>
@@ -90,10 +99,13 @@
 </tbody>  
 
 </table>
+<a href="?c=admins&m=editarPerfil&id=<?php echo $r->id_contratista;?> " class="btn btn-primary btn-sm">EDITAR <i class="fas fa-user-edit"></i></a>
+<?php  }  }  } ?>
 </div>
 
 
 </div>
+
 
 
 

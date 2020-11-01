@@ -126,8 +126,22 @@ $epss = parent::consultarEps();
 
 		</div>
 		<?php } } ?>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit"class="btn btn-primary" onclick="return alert()">Actualizar</button>
 		<select name="nombres">
+		<script type="text/javascript">
+        function alert(){
+            var alarma = confirm("al aceptar el cambio se va a guardar, esta seguro de actualizar?");
+                if (alarma == true)
+                {
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        
+        
+        
+    </script>
 
 
 		</form>

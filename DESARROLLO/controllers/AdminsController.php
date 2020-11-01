@@ -28,9 +28,9 @@ class AdminsController extends Administrador{
     public function registrar_usuario(){
         
 
-        $Nombres = ($_POST['updateNombres']);
-        $Apellidos = ($_POST['updateApellidos']);
-        $Clave = ($_POST['updateContraseña']);
+        $Nombres = ($_POST['nombres']);
+        $Apellidos = ($_POST['apellidos']);
+        $Clave = ($_POST['contraseña']);
         $Tipo_documento = ($_POST['fk_tipo_documento']);
         $Numero_documento = ($_POST['numero_documento']);
         $Genero = ($_POST['fk_genero']);

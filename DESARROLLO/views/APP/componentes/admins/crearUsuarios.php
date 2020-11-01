@@ -40,17 +40,17 @@
 	<form action="?c=Admins&m=registrar_usuario" method="post">
 		<div class="form-group">
 			<label for="">Nombres:</label>
-			<input type="text" class="form-control" name="nombres" id="" aria-describedby="">
+			<input type="text" class="form-control" name="nombres" id="" aria-describedby="" required>
 
 		</div>
 		<div class="form-group">
 			<label for="">Apellidos:</label>
-			<input type="text" class="form-control" name="apellidos" id="" aria-describedby="">
+			<input type="text" class="form-control" name="apellidos" id="" aria-describedby=""required>
 		</div>
 
 
 		<label for=""> Tipo documento:</label>
-		<select name="fk_tipo_documento"  class="form-control col- ">
+		<select name="fk_tipo_documento"  class="form-control col- " required>
 		<?php 
 
 	$documentos = parent::consultarDocumento();
@@ -68,7 +68,7 @@
 
 		<div class="form-group">
 			<label for="">Numero documento:</label>
-			<input type="text" class="form-control" name="numero_documento" id="" aria-describedby="">
+			<input type="text" class="form-control" name="numero_documento" id="" aria-describedby="" required>
 		</div>
 
 		<label for=""> Genero:</label>
@@ -128,12 +128,16 @@ $localidads = parent::consultarLocalidad();
 
 		<div class="form-group">
 			<label for="">Email:</label>
-			<input type="text" class="form-control" name="email" id="" aria-describedby="">
+			<input type="text" class="form-control" name="email" id="" aria-describedby="" required>
+		</div>
+		<div class="form-group">
+			<label for="">Clave:</label>
+			<input type="password" class="form-control" name="contraseña" id="" aria-describedby="" required>
 		</div>
 
 		<div class="form-group">
 			<label for="">Celular:</label>
-			<input type="text" class="form-control" name="celular" id="" aria-describedby="">
+			<input type="text" class="form-control" name="celular" id="" aria-describedby=""required>
 		</div>
 
 		<div class="form-group">

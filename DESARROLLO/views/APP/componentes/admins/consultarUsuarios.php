@@ -55,17 +55,29 @@
 			<td><?php echo $r->apellidos?></td>
 			<td><?php echo $r->numero_documento?></td>
 
-	<td><a href="?c=Admins&m=VerUser&id=" class="btn btn-dark btn-sm"><i class="fas fa-eye"></i></a>
-		<a href="?c=admins&m=editarPerfil&id=<?php echo $r->id_contratista;?> " class="btn btn-primary btn-sm"><i class="fas fa-user-edit"></i></a>
-		<a href="?c=Admins&m=eliminar&id= <?php echo $r->id_contratista?>" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
-
+	<td><a href="?c=Admins&m=VerUser&id=<?php echo $r->id_contratista;?>" class="btn btn-dark btn-sm"><i class="fas fa-eye"></i></a>
+		<a href="?c=admins&m=editarPerfil&id=<?php echo $r->id_contratista;?> " class="btn btn-primary btn-sm" ><i class="fas fa-user-edit"></i></a>
+		<a href="?c=Admins&m=eliminar&id= <?php echo $r->id_contratista?>" class="btn btn-danger btn-sm" onclick="return alert()"><i class="fas fa-trash-alt"></i></a>
+		
 	</td>
 
 
 </tr>
+<script type="text/javascript">
+        function alert(){
+            var alarma = confirm("esta segur de eliminar el siguiente formulario?");
+                if (alarma == true)
+                {
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+			</script>
+<?php } ?>
 
 </tbody>  
-<?php } ?>
+
 </table>
 </div>
 
