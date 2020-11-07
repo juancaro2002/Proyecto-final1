@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-10-2020 a las 18:54:18
+-- Tiempo de generación: 07-11-2020 a las 18:56:28
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `base_de_datos`
+-- Base de datos: `base-datos`
 --
 
 -- --------------------------------------------------------
@@ -59,11 +59,20 @@ CREATE TABLE `contratista` (
   `direccion` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `fk_localidad` int(11) NOT NULL,
   `email` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `contraseña` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `celular` char(15) COLLATE utf8_unicode_ci DEFAULT NULL,
   `telefono` char(15) COLLATE utf8_unicode_ci DEFAULT NULL,
   `fk_eps` int(11) DEFAULT NULL,
   `fk_sede_contratista` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `contratista`
+--
+
+INSERT INTO `contratista` (`id_contratista`, `nombres`, `apellidos`, `fk_tipo_documento`, `numero_documento`, `fk_genero`, `fk_cargo`, `edad`, `direccion`, `fk_localidad`, `email`, `contraseña`, `celular`, `telefono`, `fk_eps`, `fk_sede_contratista`) VALUES
+(22, 'juan David', 'carooo', 1, '1000840465', 1, 1, 18, 'cll155bis840', 1, 'juandiscaro2008@gmail.com', '12345', '3108019951', '3108016681', 1, 1),
+(23, 'asfasf', 'asfasf', 2, 'asfasf', 2, 1, 0, '', 1, 'asfasf', 'asfasf', 'asfasf', 'asfasf', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -74,12 +83,22 @@ CREATE TABLE `contratista` (
 CREATE TABLE `contrato` (
   `id_contrato` int(11) NOT NULL,
   `fk_contratista` int(11) NOT NULL,
-  `valor` double DEFAULT NULL,
+  `nombreCompleto` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `cedula` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `fecha_inicio` date DEFAULT NULL,
   `fecha_fin` date DEFAULT NULL,
   `fk_estado` int(11) DEFAULT NULL,
   `fk_tipo_contrato` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `contrato`
+--
+
+INSERT INTO `contrato` (`id_contrato`, `fk_contratista`, `nombreCompleto`, `cedula`, `fecha_inicio`, `fecha_fin`, `fk_estado`, `fk_tipo_contrato`) VALUES
+(4, 22, ' juan david caro martinez', '1000952019', '2020-03-16', '2020-03-15', 1, 1),
+(5, 23, ' luisa fernanda', '1000952019', '2020-11-24', '2020-11-12', 1, 1),
+(6, 22, ' juan david caro martinez', '1000952019', '2020-11-07', '2020-11-27', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -171,21 +190,6 @@ INSERT INTO `generos` (`id_genero`, `genero`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `historial_solicitud`
---
-
-CREATE TABLE `historial_solicitud` (
-  `id_historial_solicitud` int(11) NOT NULL,
-  `fk_usuario` int(11) NOT NULL,
-  `fk_firma_solicitud` int(11) NOT NULL,
-  `fk_contrato` int(11) NOT NULL,
-  `nombre_archivo` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `fecha_solicitud` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `localidad`
 --
 
@@ -223,30 +227,6 @@ INSERT INTO `localidad` (`id_localidad`, `localidad`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `objetivos`
---
-
-CREATE TABLE `objetivos` (
-  `id_objetivos` int(11) NOT NULL,
-  `objetivo` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
-  `fk_tipo_objetivos` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `objetivos_contrato`
---
-
-CREATE TABLE `objetivos_contrato` (
-  `id_objetvos_contrato` int(11) NOT NULL,
-  `fk_objetivos` int(11) NOT NULL,
-  `fk_contrato` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `sedes`
 --
 
@@ -256,6 +236,13 @@ CREATE TABLE `sedes` (
   `direccion` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `telefono` char(20) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `sedes`
+--
+
+INSERT INTO `sedes` (`id_sede`, `nombre`, `direccion`, `telefono`) VALUES
+(1, 'arquitecto en estupides', 'cll155bis#7-70', '32135431');
 
 -- --------------------------------------------------------
 
@@ -293,38 +280,13 @@ CREATE TABLE `tipo_documento` (
   `tipo_documento` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `tipo_objetivos`
+-- Volcado de datos para la tabla `tipo_documento`
 --
 
-CREATE TABLE `tipo_objetivos` (
-  `id_tipo_objetivos` int(11) NOT NULL,
-  `tipo_objetivos` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuarios`
---
-
-CREATE TABLE `usuarios` (
-  `id_usuarios` int(11) NOT NULL,
-  `usuario` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `clave` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `fk_cargo_contratista` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`id_usuarios`, `usuario`, `email`, `clave`, `fk_cargo_contratista`) VALUES
-(13, 'juan', 'juandiscaro2008@gmail.com', '12345', 1),
-(15, 'luisa', 'lufvr@gmail.com', '12345', 2);
+INSERT INTO `tipo_documento` (`id_tipo_documento`, `tipo_documento`) VALUES
+(1, 'Ti'),
+(2, 'CC');
 
 --
 -- Índices para tablas volcadas
@@ -383,34 +345,10 @@ ALTER TABLE `generos`
   ADD PRIMARY KEY (`id_genero`);
 
 --
--- Indices de la tabla `historial_solicitud`
---
-ALTER TABLE `historial_solicitud`
-  ADD PRIMARY KEY (`id_historial_solicitud`),
-  ADD KEY `fk_usuario` (`fk_usuario`),
-  ADD KEY `fk_firma_solicitud` (`fk_firma_solicitud`),
-  ADD KEY `fk_contrato` (`fk_contrato`);
-
---
 -- Indices de la tabla `localidad`
 --
 ALTER TABLE `localidad`
   ADD PRIMARY KEY (`id_localidad`);
-
---
--- Indices de la tabla `objetivos`
---
-ALTER TABLE `objetivos`
-  ADD PRIMARY KEY (`id_objetivos`),
-  ADD KEY `fk_tipo_objetivos` (`fk_tipo_objetivos`);
-
---
--- Indices de la tabla `objetivos_contrato`
---
-ALTER TABLE `objetivos_contrato`
-  ADD PRIMARY KEY (`id_objetvos_contrato`),
-  ADD KEY `fk_objetivos` (`fk_objetivos`),
-  ADD KEY `fk_contrato` (`fk_contrato`);
 
 --
 -- Indices de la tabla `sedes`
@@ -431,19 +369,6 @@ ALTER TABLE `tipo_documento`
   ADD PRIMARY KEY (`id_tipo_documento`);
 
 --
--- Indices de la tabla `tipo_objetivos`
---
-ALTER TABLE `tipo_objetivos`
-  ADD PRIMARY KEY (`id_tipo_objetivos`);
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usuarios`),
-  ADD KEY `fk_cargo_contratista` (`fk_cargo_contratista`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -457,13 +382,13 @@ ALTER TABLE `cargo_contratista`
 -- AUTO_INCREMENT de la tabla `contratista`
 --
 ALTER TABLE `contratista`
-  MODIFY `id_contratista` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_contratista` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `contrato`
 --
 ALTER TABLE `contrato`
-  MODIFY `id_contrato` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_contrato` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `eps`
@@ -490,34 +415,16 @@ ALTER TABLE `generos`
   MODIFY `id_genero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `historial_solicitud`
---
-ALTER TABLE `historial_solicitud`
-  MODIFY `id_historial_solicitud` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `localidad`
 --
 ALTER TABLE `localidad`
   MODIFY `id_localidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT de la tabla `objetivos`
---
-ALTER TABLE `objetivos`
-  MODIFY `id_objetivos` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `objetivos_contrato`
---
-ALTER TABLE `objetivos_contrato`
-  MODIFY `id_objetvos_contrato` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `sedes`
 --
 ALTER TABLE `sedes`
-  MODIFY `id_sede` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_sede` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_contrato`
@@ -529,19 +436,7 @@ ALTER TABLE `tipo_contrato`
 -- AUTO_INCREMENT de la tabla `tipo_documento`
 --
 ALTER TABLE `tipo_documento`
-  MODIFY `id_tipo_documento` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `tipo_objetivos`
---
-ALTER TABLE `tipo_objetivos`
-  MODIFY `id_tipo_objetivos` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id_usuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_tipo_documento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
@@ -571,34 +466,6 @@ ALTER TABLE `contrato`
 --
 ALTER TABLE `firma_digital`
   ADD CONSTRAINT `firma_digital_ibfk_1` FOREIGN KEY (`fk_tipo_documento_firma`) REFERENCES `tipo_documento` (`id_tipo_documento`);
-
---
--- Filtros para la tabla `historial_solicitud`
---
-ALTER TABLE `historial_solicitud`
-  ADD CONSTRAINT `historial_solicitud_ibfk_1` FOREIGN KEY (`fk_usuario`) REFERENCES `usuarios` (`id_usuarios`),
-  ADD CONSTRAINT `historial_solicitud_ibfk_2` FOREIGN KEY (`fk_firma_solicitud`) REFERENCES `firma_digital` (`id_firma_digital`),
-  ADD CONSTRAINT `historial_solicitud_ibfk_3` FOREIGN KEY (`fk_contrato`) REFERENCES `contrato` (`id_contrato`);
-
---
--- Filtros para la tabla `objetivos`
---
-ALTER TABLE `objetivos`
-  ADD CONSTRAINT `objetivos_ibfk_1` FOREIGN KEY (`fk_tipo_objetivos`) REFERENCES `tipo_objetivos` (`id_tipo_objetivos`);
-
---
--- Filtros para la tabla `objetivos_contrato`
---
-ALTER TABLE `objetivos_contrato`
-  ADD CONSTRAINT `objetivos_contrato_ibfk_1` FOREIGN KEY (`fk_objetivos`) REFERENCES `objetivos` (`id_objetivos`),
-  ADD CONSTRAINT `objetivos_contrato_ibfk_2` FOREIGN KEY (`fk_objetivos`) REFERENCES `objetivos` (`id_objetivos`),
-  ADD CONSTRAINT `objetivos_contrato_ibfk_3` FOREIGN KEY (`fk_contrato`) REFERENCES `contrato` (`id_contrato`);
-
---
--- Filtros para la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`fk_cargo_contratista`) REFERENCES `cargo_contratista` (`id_cargo_contratista`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
