@@ -57,7 +57,7 @@
 
 <script type="text/javascript">
         function alert(){
-            var alarma = confirm("esta segur de eliminar el siguiente formulario?");
+            var alarma = confirm("esta seguro de eliminar el siguiente formulario?");
             if (alarma == true)
             {
             return true;

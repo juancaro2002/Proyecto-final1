@@ -122,7 +122,7 @@ foreach ($tipos as $tipo){
 
 		</div>
 
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary" onclick="return alert()">Submit</button>
 
 		<select name="nombres">
 
@@ -131,15 +131,22 @@ foreach ($tipos as $tipo){
 
 	</div>
 
-
+	<script type="text/javascript">
+function alert(){
+    var alarma = confirm("esta seguro de crear un nuevo contrato?");
+        if (alarma == true)
+        {return true;
+        }else{
+        return false;
+        }
+    }    
+    </script>
 
 </div>
 
 
 
-</div>
-</div>
-</div>
+
 </header>
 
 <footer style="height: 100px; background-color: #000000; color: white; font-size: 110%; text-align: center;">@ COPYRYGHT 2020 POR C.A.C. EL REGISTRO EN ESTA PAGINA WEB IMPLICA LA ACEPTACION DE SU POLITOCA DE PRIVACIDAD.</footer>
