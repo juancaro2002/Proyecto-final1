@@ -38,19 +38,14 @@
 		<thead>
 			<tr>
 				<th scope="col">ID</th>
-				<th scope="col">Nombres</th>
-				<th scope="col">Apellidos</th>
-                <th scope="col">Documento</th>
-				<th scope="col">#Documento</th>
-                <th scope="col">Genero</th>
-                <th scope="col">Cargo</th>
-                <th scope="col">Edad</th>
-                <th scope="col">Direccion</th>
-                <th scope="col">Localidad</th>
-                <th scope="col">Email</th>
-                <th scope="col">Celular</th>
-                <th scope="col">Telefono</th>
-                <th scope="col">Eps</th>
+                <th scope="col">usuario</th>
+                <th scope="col">Nombre completo</th>
+                <th scope="col">Cedula</th>
+                <th scope="col">Fecha inicio</th>
+                <th scope="col">Fecha fin</th>
+                <th scope="col">Estado</th>
+                <th scope="col">tipo contrato</th>
+			
                 
 
 </tr>
@@ -58,35 +53,29 @@
 <tbody>
 			<tr>
 			<?php  $id = $_REQUEST['id'];
-            $r=parent::all($id);{?>
+            $r=parent::contra($id);{?>
 
 <input type="hidden" value="<?php echo $id ?>" name="updateid"  class="form-control" readonly>
 
 			<?php foreach($r as $r){
-		 	if($id == $r->id_contratista){ 
+		 	if($id == $r->id_contrato){ 
 			?>
 		
-			<td><?php echo $r->id_contratista;?></td>
-			<td><?php echo $r->nombres;?></td>
-			<td><?php echo $r->apellidos;?></td>
-            <td><?php echo $r->fk_tipo_documento;?></td>
-			<td><?php echo $r->numero_documento;?></td>
-            <td><?php echo $r->fk_genero;?></td>
-            <td><?php echo $r->fk_cargo;?></td>
-            <td><?php echo $r->edad;?></td>
-            <td><?php echo $r->direccion;?></td>
-            <td><?php echo $r->fk_localidad;?></td>
-            <td><?php echo $r->email;?></td>
-            <td><?php echo $r->celular;?></td>
-            <td><?php echo $r->telefono;?></td>
-            <td><?php echo $r->fk_eps;?></td>
+                <td><?php echo $r->id_contrato?></td>
+				<td><?php echo $r->fk_contratista?></td>
+				<td><?php echo $r->nombreCompleto?></td>
+				<td><?php echo $r->cedula?></td>
+				<td><?php echo $r->fecha_inicio?></td>
+				<td><?php echo $r->fecha_fin?></td>
+				<td><?php echo $r->fk_estado?></td>
+				<td><?php echo $r->fk_tipo_contrato?></td>
             
 	</td>
 </tr>
 
 </tbody>  
 </table>
-<a href="?c=admins&m=editarPerfil&id=<?php echo $r->id_contratista;?> " class="btn btn-primary btn-sm">EDITAR <i class="fas fa-user-edit"></i></a>
+<a href="?c=admins&m=editarCertificados&id=<?php echo $r->id_contrato;?> " class="btn btn-primary btn-sm">EDITAR <i class="fas fa-user-edit"></i></a>
 <?php  }  }  } ?>
 </div>
 </div>

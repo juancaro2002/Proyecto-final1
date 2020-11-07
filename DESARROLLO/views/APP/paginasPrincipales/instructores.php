@@ -24,7 +24,7 @@
                 <div class="MenuHover">
                     <nav>
                         <ul>
-                        <li>
+                            <li>
                                 <a href="?c=instructores&m=instruc" ><i class="fas fa-house-user"></i> INICIO </a>
                             </li>
                             <li>
@@ -51,8 +51,7 @@
                                 <h1>&nbsp&nbsp|INSTRUCTORES</h1>
 
                             </div>
-
-                        </div>
+                            </div>
                         <div class="col-md-2.5" id="" style="height: 600px">
                             <div class="col-md-12" style="margin-top: 10%;">
                                 <div class="card" style=" margin-top:50%;">
@@ -64,31 +63,11 @@
                                             <center> <a href="?c=Instructores&m=consultarCERT" class="btn btn-outline-primary" style="margin-top: 7%" >CONSULTAR CERTIFICADOS</a>
                                             </center>
                                         </div>
-
-
-
-
-
                                     </div>
-
-
                                 </div>
-
-
                             </div>
                             <div class="" style="border-left:  black 5px solid; ">
 
-
-
-                            </div>
-
-                        </div>
-
-
-
-                    </div>  
-                </div>
-            </div>
         </header>
 
         <footer style="height: 100px; background-color: #000000; color: white; font-size: 110%; text-align: center;">@ COPYRYGHT 2020 POR C.A.C. EL REGISTRO EN ESTA PAGINA WEB IMPLICA LA ACEPTACION DE SU POLITOCA DE PRIVACIDAD.</footer>

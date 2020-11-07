@@ -14,61 +14,57 @@
 </head>
 
 <body>
-	<!-- CABECERA/MENU -->
-	<?php  require_once 'views/compo/menu.php'; ?>
-	<!--final/Menu-->/
-
-	<!--inicio/cuadro/principal-->    
-	<?php  require_once 'views/compo/barraLateralAdmin.php'; ?>
-	<!--fin/cuadro/lateral/admins--> 
-
-
+<!-- CABECERA/MENU -->
+<?php  require_once 'views/compo/menu.php'; ?>
+<!--final/Menu-->
+/
+<!--inicio/cuadro/principal-->    
+<?php  require_once 'views/compo/barraLateralAdmin.php'; ?>
+<!--fin/cuadro/lateral/admins--> 
 </div>
-
-
 </div>
 <div class="" style="border-left:  black 5px solid; ">
-
-
-
 </div>
 <div class="card-body" style="background-color: grey;">
-	<table class="table table-striped">
+<table class="table table-striped">
+
 		<thead>
 			<tr>
-				<th scope="col">Id</th>
-				<th scope="col">Email</th>
-				<th scope="col">Username</th>
-				<th scope="col">Password</th>
-				<th scope="col">cargo</th>
+			<th scope="col">Id</th>
+				<th scope="col">usuario</th>
+				<th scope="col">nombres</th>
+				<th scope="col">cedula</th>
+				
 				<th scope="col" class="text-center">Acciones</th>
 			</tr>
 		</thead>
-		<tbody>
+
+<?php foreach(parent::contra() as $r){?>
+
+	<tbody>
 			<tr>
-				<th scope="row">1</th>
-				<td>profealbeiro@gmail.com</td>
-				<td>admin</td>
-				<td>12345</td>
-				<td>administrador</td>
-				<td class="text-center">
-					<a href="APP/componentes/admins/modificarCertificado.html" class="btn btn-success btn-sm"><i class="far fa-edit"></i></a><a href="../componentes/mensaje.html" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
-				</td>
-			</tr>
+				<td><?php echo $r->id_contrato?></td>
+				<td><?php echo $r->fk_contratista?></td>
+				<td><?php echo $r->nombreCompleto?></td>
+				<td><?php echo $r->cedula?></td>
+				
 
-		</tbody>
-	</table>
+			<td>
+				<a href="?c=Admins&m=verCer&id=<?php echo $r->id_contrato;?>" class="btn btn-dark btn-sm"><i class="fas fa-eye"></i></a>
+				<a href="?c=admins&m=editarCertificados&id=<?php echo $r->id_contrato;?> " class="btn btn-primary btn-sm" ><i class="fas fa-user-edit"></i></a>
+				
+			</td>
+
+</tr>
+
+
+<?php } ?>
+</tbody>  
+</table>
 </div>
 
-
-</div>
-
-
-
-</div>
-</div>
-</div>
 </header>
+
 <footer style="height: 100px; background-color: #000000; color: white; font-size: 110%; text-align: center;">@ COPYRYGHT 2020 POR C.A.C. EL REGISTRO EN ESTA PAGINA WEB IMPLICA LA ACEPTACION DE SU POLITOCA DE PRIVACIDAD.</footer>
 
 <!-- SCRIPT -->
@@ -80,3 +76,4 @@
 </body>
 
 </html>
+S

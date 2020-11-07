@@ -25,11 +25,11 @@ class LoginController extends login{
         $Entrar=$this->usuarios->requestCorreo($_POST['email']);
         if($Email==$Entrar->email && $Clave== $Entrar->contraseña && $Cargo==$Entrar->fk_cargo){
          
-            $_SESSION['contratista']=$Entrar;
-            header("location:?c=Admins&m=admins");
+        $_SESSION['contratista']=$Entrar;
+        header("location:?c=Admins&m=admins");
 
         }else{
-            header("location:?c=Index&m=loginAD");
+        header("location:?c=Index&m=loginAD");
              
         }
       
@@ -46,8 +46,8 @@ class LoginController extends login{
         $Usuario=$this->usuarios->requestEmail($_POST['email']);
         if($Email==$Usuario->email && $Clave== $Usuario->clave && $Cargo==$Usuario->fk_cargo_contratista){
          
-            $_SESSION['user']=$Usuario;
-            header("location:?c=Instructores&m=instruc");
+        $_SESSION['user']=$Usuario;
+        header("location:?c=Instructores&m=instruc");
 
             
         }else{

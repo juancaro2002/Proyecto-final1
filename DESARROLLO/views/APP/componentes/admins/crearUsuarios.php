@@ -21,63 +21,64 @@
 	<!--inicio/cuadro/principal-->    
 	<?php  require_once 'views/compo/barraLateralAdmin.php'; ?>
 	<!--fin/cuadro/lateral/admins--> 
-
+</div>
 
 </div>
 
-
-</div>
 <div class="" style="border-left:  black 5px solid; ">
 
-
-
 </div>
 
-
-
+<!--Nombres -->
 
 <div class="col-md" style="margin:5%; height: 550px; overflow: auto; width:152px;" name=""> 
 	<form action="?c=Admins&m=registrar_usuario" method="post">
 		<div class="form-group">
 			<label for="">Nombres:</label>
 			<input type="text" class="form-control" name="nombres" id="" aria-describedby="" required>
+	</div>
 
-		</div>
+<!--fin Nombres -->
+
+<!--Apellidos -->
 		<div class="form-group">
 			<label for="">Apellidos:</label>
 			<input type="text" class="form-control" name="apellidos" id="" aria-describedby=""required>
 		</div>
+<!--fin Apellidos -->
 
-
+<!--tipo documento -->
 		<label for=""> Tipo documento:</label>
 		<select name="fk_tipo_documento"  class="form-control col- " required>
 		<?php 
 
-	$documentos = parent::consultarDocumento();
-
-		foreach ($documentos as $documento){
+$documentos = parent::consultarDocumento();
+foreach ($documentos as $documento){
 	
-?>
+		?>
 
-			<option value="<?php echo $documento->id_tipo_documento; ?>">
-			<?php echo $documento->tipo_documento;?></option>
-			<?php } ?>
+		<option value="<?php echo $documento->id_tipo_documento; ?>">
+		<?php echo $documento->tipo_documento;?></option>
+		<?php } ?>
 		</select>
 		
-
+<!--fin tipo documento -->
+<!--Numero documento -->
 
 		<div class="form-group">
 			<label for="">Numero documento:</label>
 			<input type="text" class="form-control" name="numero_documento" id="" aria-describedby="" required>
 		</div>
 
+<!--fin numero documento -->
+
+<!--genero -->
 		<label for=""> Genero:</label>
 		<select name="fk_genero" id="fk_genero" class="form-control ">
 		<?php 
 
 $generos = parent::consultarGenero();
-
-	foreach ($generos as $genero){
+foreach ($generos as $genero){
 
 ?>
 
@@ -85,39 +86,44 @@ $generos = parent::consultarGenero();
 		<?php echo $genero->genero;?></option>
 		<?php } ?>
 		</select>
+<!--fin Genero -->
 
+<!--Cargo -->
 		<label for=""> Cargo</label>
 		<select name="fk_cargo" id="fk_cargo" class="form-control ">
 		<?php 
 
 $cargos = parent::consultarCargo();
-
-	foreach ($cargos as $cargo){
+foreach ($cargos as $cargo){
 
 ?>
-
 		<option value="<?php echo $cargo->id_cargo_contratista; ?>">
 		<?php echo $cargo->cargo;?></option>
 		<?php } ?>
 		</select>
+<!--fin Cargo -->
 
+<!--Edad -->
 		<div class="form-group">
-			<label for="">Edad:</label>
-			<input type="text" class="form-control" name="edad" id="" aria-describedby="">
+		<label for="">Edad:</label>
+		<input type="text" class="form-control" name="edad" id="" aria-describedby="">
 		</div>
+<!--fin Edad -->
 
+<!--direccion -->
 		<div class="form-group">
-			<label for="">Direccion:</label>
-			<input type="text" class="form-control" name="direccion" id="" aria-describedby="">
+		<label for="">Direccion:</label>
+		<input type="text" class="form-control" name="direccion" id="" aria-describedby="">
 		</div>
+<!--fin Direccion -->
 
+<!--localidad -->
 		<label for=""> Localidad</label>
 		<select name="fk_localidad" id="fk_localidad" class="form-control ">
 		<?php 
 
 $localidads = parent::consultarLocalidad();
-
-	foreach ($localidads as $localidad){
+foreach ($localidads as $localidad){
 
 ?>
 
@@ -125,33 +131,43 @@ $localidads = parent::consultarLocalidad();
 		<?php echo $localidad->localidad;?></option>
 		<?php } ?>
 		</select>
+<!--fin Localidad -->
 
+<!--Email -->
 		<div class="form-group">
-			<label for="">Email:</label>
-			<input type="text" class="form-control" name="email" id="" aria-describedby="" required>
+		<label for="">Email:</label>
+		<input type="text" class="form-control" name="email" id="" aria-describedby="" required>
 		</div>
-		<div class="form-group">
-			<label for="">Clave:</label>
-			<input type="password" class="form-control" name="contraseña" id="" aria-describedby="" required>
-		</div>
+<!--fin Email -->
 
+<!--Clave -->
 		<div class="form-group">
-			<label for="">Celular:</label>
-			<input type="text" class="form-control" name="celular" id="" aria-describedby=""required>
+		<label for="">Clave:</label>
+		<input type="password" class="form-control" name="contraseña" id="" aria-describedby="" required>
 		</div>
+<!--fin Clave -->
 
+<!--Celular -->
 		<div class="form-group">
-			<label for="">Telefono:</label>
-			<input type="text" class="form-control" name="telefono" id="" aria-describedby="">
+		<label for="">Celular:</label>
+		<input type="text" class="form-control" name="celular" id="" aria-describedby=""required>
 		</div>
+<!--fin Celular -->
 
+<!--telefono -->
+		<div class="form-group">
+		<label for="">Telefono:</label>
+		<input type="text" class="form-control" name="telefono" id="" aria-describedby="">
+		</div>
+<!--fin Telefono -->
+
+<!--eps -->
 		<label for=""> Eps:</label>
 		<select name="fk_eps" id="fk_eps" class="form-control ">
 		<?php 
 
 $epss = parent::consultarEps();
-
-	foreach ($epss as $eps){
+foreach ($epss as $eps){
 
 ?>
 
@@ -159,14 +175,15 @@ $epss = parent::consultarEps();
 		<?php echo $eps->nombre_eps;?></option>
 		<?php } ?>
 		</select>
+<!--fin Eps -->
 
+<!--Sede -->
 		<label for=""> Sede</label>
 		<select name="fk_sede_contratista" id="fk_sede_contratista" class="form-control ">
 		<?php 
 
 $sedes = parent::consultarSede();
-
-	foreach ($sedes as $sede){
+foreach ($sedes as $sede){
 
 ?>
 
@@ -174,11 +191,14 @@ $sedes = parent::consultarSede();
 		<?php echo $sede->direccion;?></option>
 		<?php } ?>
 		</select>
+<!--fin Sede -->
 
 		<div class="form-group form-check">
 
 		</div>
+
 		<button type="submit" class="btn btn-primary">Submit</button>
+
 		<select name="nombres">
 
 
@@ -208,24 +228,3 @@ $sedes = parent::consultarSede();
 </body>
 
 </html>
-<?php
-
-$r=parent::registrar($_REQUEST['ID']);
-
-foreach($resultados as $resultado){
-
-
-	?>
-
-	<option value="<?php echo $resultado->id_usuarios;?>">
-
-		<?php echo $resultado->id_usuarios; ?>
-		<?php echo $resultado->usuario; ?>
-		<?php echo $resultado->email; ?>
-		<?php echo $resultado->clave; ?>
-		<?php echo $resultado->fk_cargo_contratista; ?>
-
-
-
-	</option>
-<?php } ?>

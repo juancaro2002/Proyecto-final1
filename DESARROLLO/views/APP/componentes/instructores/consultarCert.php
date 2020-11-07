@@ -24,7 +24,7 @@
                 <div class="MenuHover">
                     <nav>
                         <ul>
-                        <li>
+                            <li>
                                 <a href="?c=instructores&m=instruc" ><i class="fas fa-house-user"></i> INICIO </a>
                             </li>
                             <li>
@@ -65,41 +65,26 @@
                                             </center>
                                         </div>
 
-
-
-
-
                                     </div>
-
 
                                 </div>
 
-
                             </div>
-                            <div class="" style="border-left:  black 5px solid; ">
-
-
-                                
-
-                            </div>
-
-                        </div>
-
-
-
-                    </div>  
+                        <div class="" style="border-left:  black 5px solid; ">
+                    </div>
                 </div>
-            </div>
+                </div>  
+                </div>
+                </div>
         </header>
 
-        <footer style="height: 100px; background-color: #000000; color: white; font-size: 110%; text-align: center;">@ COPYRYGHT 2020 POR C.A.C. EL REGISTRO EN ESTA PAGINA WEB IMPLICA LA ACEPTACION DE SU POLITOCA DE PRIVACIDAD.</footer>
+<footer style="height: 100px; background-color: #000000; color: white; font-size: 110%; text-align: center;">@ COPYRYGHT 2020 POR C.A.C. EL REGISTRO EN ESTA PAGINA WEB IMPLICA LA ACEPTACION DE SU POLITOCA DE PRIVACIDAD.</footer>
 
-        <!-- SCRIPT -->
-        <script src="assets/bootstrap-3/js/main.js"></script>
-        <script src="assets/bootstrap-3/js/jquery-3.5.1.slim.min.js" ></script>
-        <script src="assets/bootstrap-3/js/popper.min.js" ></script>
-        <script src="assets/bootstrap-3/js/bootstrap.min.js" ></script>
-        <script src="assets/bootstrap-3/js/all.js" ></script>
-    </body>
-
-    </html>
+<!-- SCRIPT -->
+<script src="assets/bootstrap-3/js/main.js"></script>
+<script src="assets/bootstrap-3/js/jquery-3.5.1.slim.min.js" ></script>
+<script src="assets/bootstrap-3/js/popper.min.js" ></script>
+<script src="assets/bootstrap-3/js/bootstrap.min.js" ></script>
+<script src="assets/bootstrap-3/js/all.js" ></script>
+</body>
+</html>

@@ -9,8 +9,8 @@
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/all.min.css">
 	<link rel="stylesheet" href="assets/css/main.css">
-	<link  rel="icon"      href="assets/img/loguito.png" type="image/png" >
-	<title>CrearCertificados</title>
+	<link  rel="icon"   href="assets/img/loguito.png" type="image/png" >
+	<title>crearUsuario</title>
 </head>
 
 <body>
@@ -21,49 +21,121 @@
 	<!--inicio/cuadro/principal-->    
 	<?php  require_once 'views/compo/barraLateralAdmin.php'; ?>
 	<!--fin/cuadro/lateral/admins--> 
+</div>
 
 </div>
 
-
-</div>
 <div class="" style="border-left:  black 5px solid; ">
 
-
-
 </div>
-<div class="col-md" style="margin:5% "> 
-	<form>
-		<div class="form-group">
-			<label for="">Usuario:</label>
-			<input type="text" class="form-control" id="" aria-describedby="">
 
-		</div>
-		<div class="form-group">
-			<label for="">Email</label>
-			<input type="email" class="form-control" id="" aria-describedby="">
 
-		</div>
-		<div class="form-group">
-			<label for="">Clave</label>
-			<input type="password" class="form-control" id="" aria-describedby="">
+<!--Nombres Completo -->
 
-		</div>
-		<label for=""> Cargo</label>
-		<select class="form-control ">
-			<option>...</option>
-			<option>Usuario</option>
+<div class="col-md" style="margin:5%; height: 550px; overflow: auto; width:152px;" name=""> 
+	<form action="?c=Admins&m=crear_Contrato" method="post">
+		<div class="form-group">
+			<label for="">NOMBRE COMPLETO:</label>
+			<input type="text" class="form-control" name="nombreCompleto" id="" aria-describedby="" required>
+	</div>
+
+<!--fin Nombres -->
+<!-- inicio contratista-->
+<label for=""> USUARIO:</label>
+		<select name="fk_contratista" id="fk_contratista" class="form-control ">
+		<?php 
+
+$usuarios = parent::consultarContratista();
+foreach ($usuarios as $usuario){
+
+?>
+
+		<option value="<?php echo $usuario->id_contratista; ?>">
+		<?php echo $usuario->nombres;?></option>
+		<?php } ?>
 		</select>
+<!--fin contratista-->
+
+
+<!--Numero documento -->
+
+		<div class="form-group">
+			<label for="">NUMERO DOCUMENTO:</label>
+			<input type="text" class="form-control" name="cedula" id="" aria-describedby="" required>
+		</div>
+
+<!--fin numero documento -->
+
+<!--Fecha Inicio -->
+
+<div class="form-group">
+			<label for="">FECHA INICIO:</label>
+			<input type="date" class="form-control" name="fecha_inicio" id="" aria-describedby="" required>
+		</div>
+
+<!--fin Fecha Inicio -->
+
+<!--Fecha Fin -->
+
+<div class="form-group">
+			<label for="">FECHA FINAL:</label>
+			<input type="date" class="form-control" name="fecha_fin" id="" aria-describedby="" required>
+		</div>
+
+<!--fin Fecha Fin -->
+
+<!--Estado contrato -->
+
+<label for=""> Estado contrato:</label>
+		<select name="fk_estado" id="fk_estado" class="form-control ">
+		<?php 
+
+$estados = parent::consultarEstado();
+foreach ($estados as $estado){
+
+?>
+
+		<option value="<?php echo $estado->id_estado_contrato; ?>">
+		<?php echo $estado->nombre_estado_contrato;?></option>
+		<?php } ?>
+		</select>
+<!--fin estado contrato -->
+
+<!--inicio tipo contrato -->
+		<label for=""> Tipo contrato:</label>
+		<select name="fk_tipo_contrato" id="fk_tipo_contrato" class="form-control ">
+		<?php 
+
+$tipos = parent::consultarTipoContrato();
+foreach ($tipos as $tipo){
+
+?>
+
+		<option value="<?php echo $tipo->id_tipo_contrato; ?>">
+		<?php echo $tipo->tipo_contrato;?></option>
+		<?php } ?>
+		</select>
+
+<!--fin Tipo Contrato -->
+
 		<div class="form-group form-check">
 
 		</div>
+
 		<button type="submit" class="btn btn-primary">Submit</button>
-	</form>
+
+		<select name="nombres">
+
+
+		</form>
+
+	</div>
+
+
+
 </div>
 
 
-</div>
-
-<!--fin del cuadro contenedor -->
 
 </div>
 </div>

@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="assets/css/all.min.css">
 	<link rel="stylesheet" href="assets/css/main.css">
 	<link  rel="icon"   href="assets/img/loguito.png" type="image/png" >
-	<title>ModificarCertificados</title>
+	<title>crearUsuario</title>
 </head>
 
 <body>
@@ -32,35 +32,60 @@
 
 
 </div>
-<div class="col-md" style="margin:5% "> 
-	<form>
-		<div class="form-group">
-			<label for="">Usuario:</label>
-			<input type="text" class="form-control" id="" aria-describedby="">
 
-		</div>
-		<div class="form-group">
-			<label for="">Email</label>
-			<input type="email" class="form-control" id="" aria-describedby="">
 
-		</div>
-		<div class="form-group">
-			<label for="">Clave</label>
-			<input type="password" class="form-control" id="" aria-describedby="">
 
-		</div>
-		<label for=""> Cargo</label>
-		<select class="form-control ">
-			<option>...</option>
-			<option>Usuario</option>
+
+<div class="col-md" style="margin:5%; height: 550px; overflow: auto; width:152px;" name=""> 
+<form action="?c=Admins&m=updateCerti" method="post">
+
+	<?php
+		$id = $_REQUEST['id'];
+		$contratos = parent::contra();
+	
+	?>
+<input type="hidden" value="<?php echo $id ?>" name="updateid"  class="form-control" readonly>
+
+		<?php foreach($contratos as $contrato){
+		if($id == $contrato->id_contrato){ ?>
+
+			<select name="fk_estado" id="fk_estado" class="form-control" value="<?php echo $contrato->fk_estado;?>">
+
+<?php 
+$estados = parent::consultarEstado();
+foreach ($estados as $estado){
+
+?>
+
+		<option value="<?php echo $estado->id_estado_contrato; ?>">
+		<?php echo $estado->nombre_estado_contrato;?></option>
+		<?php } ?>
 		</select>
+
+		
+
 		<div class="form-group form-check">
 
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
-	</form>
-</div>
 
+<?php } } ?>
+
+		<button type="submit"class="btn btn-primary" onclick="return alert()">Actualizar</button>
+		<select name="nombres">
+
+<script type="text/javascript">
+function alert(){
+    var alarma = confirm("al aceptar el cambio se va a guardar, esta seguro de actualizar?");
+        if (alarma == true)
+        {return true;
+        }else{
+        return false;
+        }
+    }    
+    </script>
+
+</form>
+</div>
 </div>
 
 
@@ -81,3 +106,5 @@
 </body>
 
 </html>
+
+

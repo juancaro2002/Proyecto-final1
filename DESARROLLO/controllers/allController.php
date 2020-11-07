@@ -1,8 +1,8 @@
 <?php
 
 class allController {
-    
-    public function index(){
+      
+        public function index(){
         require_once('views/all/index.php');
     }
 

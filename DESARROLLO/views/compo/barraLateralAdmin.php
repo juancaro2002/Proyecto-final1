@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../../css/normalize.css">
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet" href="../../css/all.min.css">
-<link rel="stylesheet" href="../../css/main.css">
+<link rel="stylesheet" href="../../css/main.css">+
 <link  rel="icon"   href="../../img/loguito.png" type="image/png" >
 <title></title>
 </head>
@@ -34,10 +34,10 @@
 <div class="card-body" style="background-color: transparent;">
 <h3 class="card-title" style="text-align: center;">CERTIFICADOS</h2>
 <hr>
-<center> <a href="?c=Admins&m=crear" class="btn btn-outline-primary" style="margin-top: 5%" >CREAR CERTIFICADO</a>   
+<center> <a href="?c=Admins&m=crear" class="btn btn-outline-primary" style="margin-top: 5%" >CREAR CONTRATO</a>   
 <center> <a href="?c=Admins&m=consultarCer" class="btn btn-outline-primary" style="margin-top: 7%" >CONSULTAR CERTIFICADOS</a>
 </center>
-<a href="?c=Admins&m=modificarCer" class="btn btn-outline-primary" style="margin-top: 7%" >MODIFICAR CERTIFICADOS</a>
+
 </div>
 
 <hr>

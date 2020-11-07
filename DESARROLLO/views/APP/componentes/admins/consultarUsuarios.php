@@ -14,81 +14,65 @@
 </head>
 
 <body>
-	<!-- CABECERA/MENU -->
-	<?php  require_once 'views/compo/menu.php'; ?>
-	<!--final/Menu-->
-	/
-
-	<!--inicio/cuadro/principal-->    
-	<?php  require_once 'views/compo/barraLateralAdmin.php'; ?>
-	<!--fin/cuadro/lateral/admins--> 
-
-
+<!-- CABECERA/MENU -->
+<?php  require_once 'views/compo/menu.php'; ?>
+<!--final/Menu-->
+/
+<!--inicio/cuadro/principal-->    
+<?php  require_once 'views/compo/barraLateralAdmin.php'; ?>
+<!--fin/cuadro/lateral/admins--> 
 </div>
-
-
 </div>
 <div class="" style="border-left:  black 5px solid; ">
-
-
-
 </div>
 <div class="card-body" style="background-color: grey;">
-	<table class="table table-striped">
+<table class="table table-striped">
+
 		<thead>
 			<tr>
 				<th scope="col">ID</th>
 				<th scope="col">Nombres</th>
 				<th scope="col">Apellidos</th>
 				<th scope="col"> documento</th>
-	<!--<th scope="col">Password</th>
-	<th scope="col">cargo</th>-->
-	<th scope="col" class="text-center">Acciones</th>
-</tr>
-</thead>
+				<th scope="col" class="text-center">Acciones</th>
+			</tr>
+		</thead>
+
 <?php foreach(parent::all() as $r){?>
 
 	<tbody>
-		<tr>
-			<td><?php echo $r->id_contratista?></td>
-			<td><?php echo $r->nombres?></td>
-			<td><?php echo $r->apellidos?></td>
-			<td><?php echo $r->numero_documento?></td>
+			<tr>
+				<td><?php echo $r->id_contratista?></td>
+				<td><?php echo $r->nombres?></td>
+				<td><?php echo $r->apellidos?></td>
+				<td><?php echo $r->numero_documento?></td>
 
-	<td><a href="?c=Admins&m=VerUser&id=<?php echo $r->id_contratista;?>" class="btn btn-dark btn-sm"><i class="fas fa-eye"></i></a>
-		<a href="?c=admins&m=editarPerfil&id=<?php echo $r->id_contratista;?> " class="btn btn-primary btn-sm" ><i class="fas fa-user-edit"></i></a>
-		<a href="?c=Admins&m=eliminar&id= <?php echo $r->id_contratista?>" class="btn btn-danger btn-sm" onclick="return alert()"><i class="fas fa-trash-alt"></i></a>
-		
-	</td>
-
+			<td>
+				<a href="?c=Admins&m=VerUser&id=<?php echo $r->id_contratista;?>" class="btn btn-dark btn-sm"><i class="fas fa-eye"></i></a>
+				<a href="?c=admins&m=editarPerfil&id=<?php echo $r->id_contratista;?> " class="btn btn-primary btn-sm" ><i class="fas fa-user-edit"></i></a>
+				<a href="?c=Admins&m=eliminar&id= <?php echo $r->id_contratista?>" class="btn btn-danger btn-sm" onclick="return alert()"><i class="fas fa-trash-alt"></i></a>
+			</td>
 
 </tr>
+
 <script type="text/javascript">
         function alert(){
             var alarma = confirm("esta segur de eliminar el siguiente formulario?");
-                if (alarma == true)
-                {
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-			</script>
+            if (alarma == true)
+            {
+            return true;
+            }else{
+            return false;
+        }
+    }
+
+</script>
+
 <?php } ?>
-
 </tbody>  
-
 </table>
 </div>
 
-
-</div>
-
-
-
-</div>
-</div>
-</div>
 </header>
 
 <footer style="height: 100px; background-color: #000000; color: white; font-size: 110%; text-align: center;">@ COPYRYGHT 2020 POR C.A.C. EL REGISTRO EN ESTA PAGINA WEB IMPLICA LA ACEPTACION DE SU POLITOCA DE PRIVACIDAD.</footer>

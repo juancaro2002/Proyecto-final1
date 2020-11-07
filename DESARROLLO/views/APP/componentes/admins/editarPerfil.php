@@ -37,81 +37,102 @@
 
 
 <div class="col-md" style="margin:5%; height: 550px; overflow: auto; width:152px;" name=""> 
-	<form action="?c=Admins&m=updateUsser" method="post">
+<form action="?c=Admins&m=updateUsser" method="post">
+
 	<?php
 		$id = $_REQUEST['id'];
 		$contratistas = parent::all();
 	
 	?>
-	 <input type="hidden" value="<?php echo $id ?>" name="updateid"  class="form-control" readonly>
+<input type="hidden" value="<?php echo $id ?>" name="updateid"  class="form-control" readonly>
 
-		 <?php foreach($contratistas as $contratista){
-		 if($id == $contratista->id_contratista){ 
-			 ?>
-		<div class="form-group">
+		<?php foreach($contratistas as $contratista){
+
+		 	if($id == $contratista->id_contratista){ 
+
+		?>
+
+	<div class="form-group">
+
 			<label for="">Nombres:</label>
 			<input type="text" class="form-control" name="nombres"   aria-describedby="" value="<?php echo $contratista->nombres;?>">
 
-		</div>
-		<div class="form-group">
+	</div>
+
+	<div class="form-group">
+
 			<label for="">Apellidos:</label>
 			<input type="text" class="form-control" name="apellidos"  aria-describedby="" value="<?php echo $contratista->apellidos;?>">
-		</div>
 
+	</div>
 
-		
+	<div class="form-group">
 
-		<div class="form-group">
 			<label for="">Edad:</label>
 			<input type="text" class="form-control" name="edad" id="" aria-describedby="" value="<?php echo $contratista->edad;?>">
-		</div>
+			
+	</div>
 
-		<div class="form-group">
+	<div class="form-group">
+
 			<label for="">Direccion:</label>
 			<input type="text" class="form-control" name="direccion" id="" aria-describedby="" value="<?php echo $contratista->direccion;?>">
-		</div>
 
-		<label for=""> Localidad</label>
-		<select name="fk_localidad" id="fk_localidad" class="form-control" value="<?php echo $contratista->fk_localidad;?>">
-		<?php 
+	</div>
+
+			<label for=""> Localidad</label>
+
+			<select name="fk_localidad" id="fk_localidad" class="form-control" value="<?php echo $contratista->fk_localidad;?>">
+
+	<?php 
 
 $localidads = parent::consultarLocalidad();
 
-	foreach ($localidads as $localidad){
+foreach ($localidads as $localidad){
 
 ?>
 
-		<option value="<?php echo $localidad->id_localidad; ?>">
-		<?php echo $localidad->localidad;?></option>
-		<?php } ?>
-		</select>
+	<option value="<?php echo $localidad->id_localidad; ?>">
 
-		<div class="form-group">
+<?php echo $localidad->localidad;?></option>
+<?php } ?>
+
+	</select>
+
+	<div class="form-group">
+
 			<label for="">Email:</label>
 			<input type="text" class="form-control" name="email" id="" aria-describedby="" value="<?php echo $contratista->email;?>">
-		</div>
-		<div class="form-group">
+	</div>
+
+	<div class="form-group">
+
 			<label for="">Clave:</label>
 			<input type="text" class="form-control" name="contraseña" id="" aria-describedby=""value="<?php echo $contratista->contraseña;?>">
-		</div>
 
-		<div class="form-group">
+	</div>
+
+	<div class="form-group">
+
 			<label for="">Celular:</label>
 			<input type="text" class="form-control" name="celular" id="" aria-describedby=""value="<?php echo $contratista->celular;?>">
-		</div>
 
-		<div class="form-group">
+	</div>
+
+	<div class="form-group">
+
 			<label for="">Telefono:</label>
 			<input type="text" class="form-control" name="telefono" id="" aria-describedby=""value="<?php echo $contratista->telefono;?>">
-		</div>
 
-		<label for=""> Eps:</label>
-		<select name="fk_eps" id="fk_eps" class="form-control" value="<?php echo $contratista->eps;?>">
-		<?php 
+	</div>
+
+			<label for=""> Eps:</label>
+			<select name="fk_eps" id="fk_eps" class="form-control" value="<?php echo $contratista->eps;?>">
+<?php 
+
 
 $epss = parent::consultarEps();
-
-	foreach ($epss as $eps){
+foreach ($epss as $eps){
 
 ?>
 
@@ -125,31 +146,25 @@ $epss = parent::consultarEps();
 		<div class="form-group form-check">
 
 		</div>
-		<?php } } ?>
+
+<?php } } ?>
+
 		<button type="submit"class="btn btn-primary" onclick="return alert()">Actualizar</button>
 		<select name="nombres">
-		<script type="text/javascript">
-        function alert(){
-            var alarma = confirm("al aceptar el cambio se va a guardar, esta seguro de actualizar?");
-                if (alarma == true)
-                {
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-        
-        
-        
+
+<script type="text/javascript">
+function alert(){
+    var alarma = confirm("al aceptar el cambio se va a guardar, esta seguro de actualizar?");
+        if (alarma == true)
+        {return true;
+        }else{
+        return false;
+        }
+    }    
     </script>
 
-
-		</form>
-
-	</div>
-
-
-
+</form>
+</div>
 </div>
 
 
@@ -170,24 +185,5 @@ $epss = parent::consultarEps();
 </body>
 
 </html>
-<?php
-
-$r=parent::registrar($_REQUEST['ID']);
-
-foreach($resultados as $resultado){
 
 
-	?>
-
-	<option value="<?php echo $resultado->id_usuarios;?>">
-
-		<?php echo $resultado->id_usuarios; ?>
-		<?php echo $resultado->usuario; ?>
-		<?php echo $resultado->email; ?>
-		<?php echo $resultado->clave; ?>
-		<?php echo $resultado->fk_cargo_contratista; ?>
-
-
-
-	</option>
-<?php } ?>

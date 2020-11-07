@@ -7,11 +7,35 @@ class AdminsController extends Administrador{
     }
 
     public function crear(){
+        
         require_once('views/APP/componentes/admins/crearCertificados.php');
     }
+    public function crear_Contrato(){
+        
+        $Contratista = ($_POST['fk_contratista']);
+        $NombresCompletos = ($_POST['nombreCompleto']);
+        $NumeroCedula = ($_POST['cedula']);
+        $FechaInicio = ($_POST['fecha_inicio']);
+        $FechaFin = ($_POST['fecha_fin']);
+        $Estado = ($_POST['fk_estado']);
+        $TipoContrato = ($_POST['fk_tipo_contrato']);
+        
+        
+        
+
+        
+        parent::registroContrato($Contratista,$NombresCompletos,$NumeroCedula,$FechaInicio,$FechaFin,$Estado,$TipoContrato);
+        header("location:?c=Admins&m=consultarCer");
+        
+    }
+
 
     public function consultarCer(){
         require_once('views/APP/componentes/admins/consultarCertificaos.php');
+    }
+
+    public function verCer(){
+        require_once('views/APP/componentes/admins/verCertificado.php');
     }
 
     public function modificarCer(){
@@ -88,9 +112,23 @@ class AdminsController extends Administrador{
         parent::updateUsuario($updateid,$Nombres,$Apellidos,$Edad,$Direccion,$Localidad,$Email,$Clave,$Celular,$Telefono,$Eps);
         header('location:?c=Admins&m=consultarUser');
     }
+
+    public function editarCertificados(){
+
+        require_once('views/APP/componentes/admins/modificarCertificado.php');
+    }
+
+    public function updateCerti(){
+        $updateid=$_POST['updateid'];
+        $Estado=$_POST['fk_estado'];
+       
+        parent::updateCertifi($updateid, $Estado);
+        header('location:?c=Admins&m=consultarCer');
+    }
     
 
 
 }
+
 
 ?>
