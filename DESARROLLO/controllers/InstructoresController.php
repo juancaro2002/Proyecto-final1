@@ -7,9 +7,7 @@ class InstructoresController extends instructores{
     }
 
 
-    public function consultarCERT(){
-        require_once('views/APP/componentes/instructores/consultarCert.php');
-    }
+  
 
 
 }

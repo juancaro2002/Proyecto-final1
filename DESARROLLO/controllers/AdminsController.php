@@ -38,6 +38,16 @@ class AdminsController extends Administrador{
         require_once('views/APP/componentes/admins/verCertificado.php');
     }
 
+    public function vistaCer(){
+        require_once('views/APP/componentes/instructores/vistaCertificados.php');
+    }
+
+    public function verCertificaPDF(){
+        require_once('views/APP/componentes/paginas/paginasInstructores/certificado.php');
+    }
+
+    
+
     public function modificarCer(){
 
         require_once('views/APP/componentes/admins/modificarCertificado.php');
@@ -78,6 +88,10 @@ class AdminsController extends Administrador{
     public function eliminar(){
         parent::eliminardato($_REQUEST['id']);
         header("location:?c=Admins&m=consultarUser");
+    }
+
+    public function consultarCERT(){
+        require_once('views/APP/componentes/instructores/consultarCert.php');
     }
 
     public function consultarUser(){

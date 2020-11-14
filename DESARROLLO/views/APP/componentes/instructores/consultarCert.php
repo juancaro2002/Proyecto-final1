@@ -60,13 +60,52 @@
                                         <h3 class="card-title" style="text-align: center;">CERTIFICADOS</h2>
                                             <hr>
 
-                                            <center> <a href="?c=admins&m=consultarCERT" class="btn btn-outline-primary" style="margin-top: 7%" >CONSULTAR CERTIFICADOS</a>
+                                            <center> <a href="?c=Instructores&m=consultarCERT" class="btn btn-outline-primary" style="margin-top: 7%" >CONSULTAR CERTIFICADOS</a>
                                             </center>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-8" style="border-left:  black 5px solid; ">
                             <div class="" style="border-left:  black 5px solid; ">
+</div>
+<div  class="card-body  col-md-12"  style="background-color: grey; margin:10%;">
+<table class="table table-striped col-md-12">
+
+		<thead>
+			<tr>
+			<th scope="col">Id</th>
+				<th scope="col">usuario</th>
+				<th scope="col">nombres</th>
+				<th scope="col">cedula</th>
+				
+				<th scope="col" class="text-center">Acciones</th>
+			</tr>
+		</thead>
+
+<?php foreach(parent::contra() as $r){?>
+
+	<tbody>
+			<tr>
+				<td><?php echo $r->id_contrato?></td>
+				<td><?php echo $r->fk_contratista?></td>
+				<td><?php echo $r->nombreCompleto?></td>
+				<td><?php echo $r->cedula?></td>
+				
+
+			<td>
+				<a href="?c=Admins&m=vistaCer&id=<?php echo $r->id_contrato;?>" class="btn btn-dark btn-sm"><i class="fas fa-eye"></i></a>
+				
+				
+			</td>
+
+</tr>
+
+
+<?php } ?>
+</tbody>  
+</table>
+</div>
 
         </header>
 

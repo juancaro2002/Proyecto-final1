@@ -40,13 +40,13 @@ class LoginController extends login{
         
         $Email=$_POST['email'];
         $Clave=$_POST['contraseña'];
-        $Cargo=$_POST['fk_cargo_contratista'];
-        $_SESSION['usuarios'] = $Email;
+        $Cargo=$_POST['fk_cargo'];
+        $_SESSION['contratista'] = $Email;
         
-        $Usuario=$this->usuarios->requestEmail($_POST['email']);
-        if($Email==$Usuario->email && $Clave== $Usuario->clave && $Cargo==$Usuario->fk_cargo_contratista){
+        $Entrar=$this->usuarios->requestCorreo($_POST['email']);
+        if($Email==$Entrar->email && $Clave== $Entrar->contraseña && $Cargo==$Entrar->fk_cargo){
          
-        $_SESSION['user']=$Usuario;
+        $_SESSION['instructor']=$Entrar;
         header("location:?c=Instructores&m=instruc");
 
             

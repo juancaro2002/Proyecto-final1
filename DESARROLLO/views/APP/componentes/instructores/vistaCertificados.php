@@ -27,7 +27,7 @@
 <div class="col-md-12" style="border-bottom: black 5px solid;">
 <div class="col-md-12" style=" margin: 5px;" >
 <img src="assets/img/logo.png" align="left" width="50" height="55    " alt="">
-<h1>&nbsp&nbsp|ADMINS|Editar perfil</h1>
+<h1>&nbsp&nbsp|VER-CERTIFICADOS</h1>
 </div>
 </div>
 		<div class="" style="border-left:  black 5px solid; ">
@@ -41,8 +41,6 @@
                 <th scope="col">usuario</th>
                 <th scope="col">Nombre completo</th>
                 <th scope="col">Cedula</th>
-                <th scope="col">Fecha inicio</th>
-                <th scope="col">Fecha fin</th>
                 <th scope="col">Estado</th>
                 <th scope="col">tipo contrato</th>
 			
@@ -65,8 +63,6 @@
 				<td><?php echo $r->fk_contratista?></td>
 				<td><?php echo $r->nombreCompleto?></td>
 				<td><?php echo $r->cedula?></td>
-				<td><?php echo $r->fecha_inicio?></td>
-				<td><?php echo $r->fecha_fin?></td>
 				<td><?php echo $r->fk_estado?></td>
 				<td><?php echo $r->fk_tipo_contrato?></td>
             
@@ -75,7 +71,6 @@
 
 </tbody>  
 </table>
-<a href="?c=admins&m=editarCertificados&id=<?php echo $r->id_contrato;?> " class="btn btn-primary btn-sm">EDITAR <i class="fas fa-user-edit"></i></a>
 <a href="?c=admins&m=verCertificaPDF&id=<?php echo $r->id_contrato;?> " class="btn btn-primary btn-sm">ver <i class="fas fa-file-download"></i></a>
 <?php  }  }  } ?>
 </div>
